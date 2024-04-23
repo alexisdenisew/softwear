@@ -1,0 +1,38 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #101010;
+}
+
+#welcomeGif {
+  width: 75%;
+  height: auto;
+}
+
+
+/* Ensure this is in your gifStyling.css or equivalent */
+.gif-container {
+    display: flex; /* Make sure this is flex or block, so it's visible */
+    justify-content: center; /* Center the gif horizontally */
+    align-items: center; /* Center the gif vertically */
+    position: fixed; /* Make sure the gif is on top of everything else */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000; /* Higher than other elements */
+  }
+  
+  /* Initially hide other elements */
+  body.initial-load:not(.ready) .navbar,
+  body.initial-load:not(.ready) .splash-image,
+  body.initial-load:not(.ready) .pop-over,
+  body.initial-load:not(.ready) nav,
+  body.initial-load:not(.ready) img:not(#welcomeGif) { /* Exclude the GIF from being hidden */
+    display: none;
+  }
+  
