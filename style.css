@@ -314,6 +314,17 @@ body, html {
       margin: 1%;
   }
 
+  .image-row .smaller {
+    width: 100%; /* Each image takes a third of the container */
+    height: 100%;
+}
+
+  .image-row .larger {
+    width: 100%; /* Each image takes a third of the container */
+    height: 100%;
+  }
+
+
     .navbar .logo img, .page-title {
         font-size: 14px; /* Smaller font size for navbar elements */
     }
