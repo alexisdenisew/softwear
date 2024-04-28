@@ -85,6 +85,7 @@ body, html {
     color: #E10374;
     background-color: #101010;
     border-radius: 10px;
+    border: none;
 }
 
 .menu {
@@ -317,6 +318,9 @@ body, html {
   .image-row .smaller {
     width: 100%; /* Each image takes a third of the container */
     height: 100%;
+}
+.page-title{
+  color: #101010;
 }
 
   .image-row .larger {
