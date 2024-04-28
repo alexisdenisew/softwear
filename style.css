@@ -82,7 +82,9 @@ body, html {
     display: none; /* Adjust based on your responsive design needs */
     margin-left: auto; /* Pushes the hamburger to the right */
     font-size: 24px;
-    color: #F3F3F3;
+    color: #E10374;
+    background-color: #101010;
+    border-radius: 10px;
 }
 
 .menu {
@@ -208,66 +210,7 @@ body, html {
     font-family: 'syne-reg', sans-serif;
   }
 
-  /* timeline stuff */
-
-  .timeline-container {
-    position: relative;
-    width: 100%;
-    padding-left: 100px; /* Adjust as necessary to align the timeline on the left */
-  }
   
-  .timeline-line {
-    position: absolute;
-    left: 50px; /* Adjust line position as per padding */
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background-color: #333;
-  }
-  
-  .timeline-point {
-    position: relative;
-    margin: 50px 0; /* Increase spacing for visibility */
-  }
-  
-  .timeline-point::before {
-    content: '';
-    position: absolute;
-    left: 14px; /* Center circle on the line */
-    transform: translateX(-50%);
-    height: 20px;
-    width: 20px;
-    background-color: #999;
-    border-radius: 50%;
-    transition: background-color 0.3s; /* Smooth transition for color change */
-  }
-  
-  .content {
-    margin-left: 80px; /* Ensure content is to the right of the line */
-    opacity: 0.5; /* Less focus on non-active items */
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  /* Highlight effect when a point is in focus */
-  .timeline-point.in-focus .content {
-    opacity: 1; /* Fully focus on active item */
-  }
-  
-  .timeline-point.in-focus::before {
-    background-color: #007bff; /* Highlight color for active point */
-  }
-
-  .timeline-point:not(.in-focus) .content {
-    /* Dim non-focused points to make the focused one stand out more */
-    opacity: 0.5;
-}
-
-.timeline-point.in-focus .content {
-    /* Brighten and scale up the focused point for emphasis */
-    opacity: 1;
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
 
   
   /* Styling for the Fixed Image */
@@ -311,37 +254,77 @@ body, html {
   font-size: 270%;
 }
 
-.image-row {
-  display: flex;
-  justify-content: center;
-  align-items: stretch; /* Align items stretch to fill the container */
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 5%;
-  height: 30vw; /* Adjust this value as needed to fit your design */
+.larger{
+  height: 200%;
 }
 
-.image-row img {
-  height: 100%; /* All images will scale to the same height */
-  flex: 1; /* Distributes space evenly, but can be adjusted if necessary */
-  object-fit: cover; /* Ensures images do not stretch */
-  transition: transform 0.3s ease;
-  margin: 0 5px; /* Reduced margin for a tighter layout */
+.image-row {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Ensure images are centered vertically */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.image-row .smaller {
+    width: 22.333%; /* Each image takes a third of the container */
+    height: 100%; /* Match heights across all images */
+    object-fit: cover; /* Ensures images cover their sections without distortion */
+    transition: transform 0.3s ease; /* Smooth transition for scaling on hover */
+    margin: 1%;
+}
+
+.image-row .larger {
+  width: 50.2%; /* Each image takes a third of the container */
+  height: 100%; /* Match heights across all images */
+  object-fit: cover; /* Ensures images cover their sections without distortion */
+  transition: transform 0.3s ease; /* Smooth transition for scaling on hover */
+  margin: 1%;
 }
 
 .image-row img:hover {
-  transform: scale(1.05); /* Subtle scale effect on hover */
+    transform: scale(1.05); /* Scale up slightly on hover */
 }
 
+@media (max-width: 768px) {
+    .image-row img:not(:nth-child(2)) {
+        display: none; /* Hide the first and third images on smaller screens */
+    }
+
+    .image-row img {
+        width: 100%; /* The remaining image takes full width */
+    }
+
+    .image-row img:hover {
+        transform: none; /* Disable hover effects on mobile */
+    }
+}
+
+/* Adjustments for mobile */
 @media (max-width: 600px) {
-  .image-row {
-      height: 60vw; /* Larger relative height on smaller screens */
+    body, html {
+        overflow-x: hidden; /* Prevents horizontal scrolling */
+    }
+
+    #regText{
+        font-size: 14px; /* Adjust font size for readability on mobile */
+    }
+
+    .regInput {
+      margin: 1%;
   }
 
-  .image-row img {
-      margin: 5px 0; /* Adjust margins for better spacing on small screens */
-  }
+    .navbar .logo img, .page-title {
+        font-size: 14px; /* Smaller font size for navbar elements */
+    }
+
+    .fixed-image-container img {
+        width: 50px; /* Adjust fixed image size on mobile */
+        height: auto; /* Maintain aspect ratio */
+        bottom: 10px; /* Adjust positioning */
+    }
 }
+
 
 .center{
   text-align: center;
@@ -349,7 +332,7 @@ body, html {
 
 #subButton, .regInput, #scrollMenu{
   margin: 20px;
-  padding: 10px;
+  padding: 5px;
   font-family: 'syne-reg', sans-serif;
   font-size: 16px;
   color: #E10374;
